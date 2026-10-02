@@ -13,4 +13,6 @@ public interface BankAccountRepo {
     List<BankAccount> searchAccount(Predicate<BankAccount> predicate);
     BankAccount update(BankAccount account);
     void deleteById(Long id);
+    void populateData();
+
 }

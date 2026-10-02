@@ -1,5 +1,7 @@
 package com.springRevision.repository;
 
+import com.springRevision.model.AccountStatus;
+import com.springRevision.model.AccountType;
 import com.springRevision.model.BankAccount;
 
 import java.util.HashMap;
@@ -55,9 +57,13 @@ public class BankAccountRepoImpl implements BankAccountRepo {
     public void populateData() {
         for (int i = 0; i < 10; i++) {
             BankAccount bankAccount = BankAccount.builder()
-                    .id()
-                    .currency()
+                    .currency("MAD")
+                    .balance(Math.random() * 100)
+                    .status(AccountStatus.CREATED)
+                    .type(Math.random() > 0.5 ? AccountType.CURRENT_ACCOUNT: AccountType.SAVING_ACCOUNT)
                     .build();
+            save(bankAccount);
         }
+
     }
 }

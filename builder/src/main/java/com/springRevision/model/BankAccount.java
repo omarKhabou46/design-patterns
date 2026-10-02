@@ -1,5 +1,6 @@
 package com.springRevision.model;
 
+import com.springRevision.builder.BankAccountBuilder;
 import jdk.jshell.Snippet;
 
 public class BankAccount {
@@ -9,7 +10,8 @@ public class BankAccount {
     private AccountType type;
     private AccountStatus status;
 
-    public static BankAccount builder() {
+    public static BankAccountBuilder builder() {
+        return new BankAccountBuilder();
     }
 
     public Long getId() {
