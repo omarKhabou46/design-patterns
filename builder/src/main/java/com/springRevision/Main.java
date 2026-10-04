@@ -13,6 +13,6 @@ public class Main {
 
        BankAccountRepo bankAccountRepo = new BankAccountRepoImpl();
        bankAccountRepo.populateData();
-       bankAccountRepo.findAll().stream().map(JsonSerialized::toJson).forEach(System.out::println);
+       bankAccountRepo.findAll().stream().map(JsonSerialized::toXml).forEach(System.out::println);
     }
 }
