@@ -5,35 +5,40 @@ import com.springRevision.model.AccountType;
 import com.springRevision.model.BankAccount;
 
 public class BankAccountBuilder {
-    private BankAccount bankAccount = new BankAccount();
+
+    private Long id;
+    private String currency;
+    private double balance;
+    private AccountType type;
+    private AccountStatus status;
 
     public BankAccountBuilder id(long id) {
-        bankAccount.setId(id);
+        this.id = id;
         return this;
     }
 
     public BankAccountBuilder currency(String currency) {
-        bankAccount.setCurrency(currency);
+        this.currency = currency;
         return this;
     }
 
     public BankAccountBuilder type(AccountType type) {
-        bankAccount.setType(type);
-        return this;
+         this.type = type;
+         return this;
     }
 
     public BankAccountBuilder status(AccountStatus status) {
-        bankAccount.setStatus(status);
+        this.status = status;
         return this;
     }
 
     public BankAccountBuilder balance(double balance) {
-        bankAccount.setBalance(balance);
+        this.balance = balance;
         return this;
     }
 
     public BankAccount build() {
-        return bankAccount;
+        return new BankAccount(id, currency, balance, status, type);
     }
 
 
