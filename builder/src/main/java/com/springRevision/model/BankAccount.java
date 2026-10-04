@@ -10,9 +10,6 @@ public class BankAccount {
     private AccountType type;
     private AccountStatus status;
 
-    public static BankAccountBuilder builder() {
-        return new BankAccountBuilder();
-    }
 
     public Long getId() {
         return id;

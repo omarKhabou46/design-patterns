@@ -1,5 +1,7 @@
 package com.springRevision.repository;
 
+import com.springRevision.Director;
+import com.springRevision.builder.BankAccountBuilder;
 import com.springRevision.model.AccountStatus;
 import com.springRevision.model.AccountType;
 import com.springRevision.model.BankAccount;
@@ -56,13 +58,12 @@ public class BankAccountRepoImpl implements BankAccountRepo {
 
     public void populateData() {
         for (int i = 0; i < 10; i++) {
-            BankAccount bankAccount = BankAccount.builder()
+            BankAccountBuilder builder = Director.accoutBuilder()
                     .currency("MAD")
                     .balance(Math.random() * 100)
                     .status(AccountStatus.CREATED)
-                    .type(Math.random() > 0.5 ? AccountType.CURRENT_ACCOUNT: AccountType.SAVING_ACCOUNT)
-                    .build();
-            save(bankAccount);
+                    .type(Math.random() > 0.5 ? AccountType.CURRENT_ACCOUNT: AccountType.SAVING_ACCOUNT);
+            save(builder.build());
         }
 
     }
