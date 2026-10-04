@@ -16,6 +16,14 @@ public class BankAccountRepoImpl implements BankAccountRepo {
 
     private static Map<Long, BankAccount> map = new HashMap<>();
     private static long accountsCount = 0;
+    private static final BankAccountRepoImpl bankAaccount;
+
+
+    static {
+        bankAaccount = new BankAccountRepoImpl();
+    }
+
+    private BankAccountRepoImpl() {}
 
     @Override
     public BankAccount save(BankAccount bankAccount) {
@@ -65,6 +73,9 @@ public class BankAccountRepoImpl implements BankAccountRepo {
                     .type(Math.random() > 0.5 ? AccountType.CURRENT_ACCOUNT: AccountType.SAVING_ACCOUNT);
             save(builder.build());
         }
+    }
 
+    public static BankAccountRepoImpl getBankAaccount() {
+        return bankAaccount;
     }
 }

@@ -11,7 +11,7 @@ public class Main {
 
     static void main() {
 
-       BankAccountRepo bankAccountRepo = new BankAccountRepoImpl();
+       BankAccountRepo bankAccountRepo = BankAccountRepoImpl.getBankAaccount();
        bankAccountRepo.populateData();
        bankAccountRepo.findAll().stream().map(JsonSerialized::toXml).forEach(System.out::println);
     }
