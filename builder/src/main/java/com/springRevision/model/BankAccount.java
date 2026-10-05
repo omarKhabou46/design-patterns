@@ -7,7 +7,15 @@ public class BankAccount implements Cloneable {
     private double balance;
     private AccountType type;
     private AccountStatus status;
+    private Customer customer;
 
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
 
     public Long getId() {
         return id;
@@ -69,13 +77,16 @@ public class BankAccount implements Cloneable {
                 ", balance=" + balance +
                 ", type=" + type +
                 ", status=" + status +
+                ", customer="+ customer +
                 '}';
     }
 
     @Override
     public BankAccount clone() {
         try {
-            return (BankAccount) super.clone();
+            BankAccount clone = (BankAccount) super.clone();
+            clone.setCustomer(customer.clone());
+            return clone;
         } catch (CloneNotSupportedException e) {
             throw new RuntimeException(e);
         }
