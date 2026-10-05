@@ -42,5 +42,16 @@ public class BankAccountBuilder {
     }
 
 
+    @Override
+    public String toString() {
+        return "BankAccountBuilder{" +
+                "id=" + id +
+                ", currency='" + currency + '\'' +
+                ", balance=" + balance +
+                ", type=" + type +
+                ", status=" + status +
+                '}';
+    }
+
 
 }
