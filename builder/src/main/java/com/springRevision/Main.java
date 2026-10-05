@@ -1,18 +1,25 @@
 package com.springRevision;
 
+import com.springRevision.model.AccountStatus;
+import com.springRevision.model.AccountType;
 import com.springRevision.model.BankAccount;
-import com.springRevision.repository.BankAccountRepo;
-import com.springRevision.repository.BankAccountRepoImpl;
-import com.springRevision.utils.JsonSerialized;
-
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
 
     static void main() {
 
-       BankAccountRepo bankAccountRepo = BankAccountRepoImpl.getBankAaccount();
-       bankAccountRepo.populateData();
-       bankAccountRepo.findAll().stream().map(JsonSerialized::toXml).forEach(System.out::println);
+        BankAccount account1 = new BankAccount();
+        account1.setId(1L);
+        account1.setBalance(10000);
+        account1.setStatus(AccountStatus.ACTIVATED);
+        account1.setType(AccountType.SAVING_ACCOUNT);
+        account1.setCurrency("MAD");
+
+        System.out.println(account1);
+
+        BankAccount account2 = account1.clone();
+
+        System.out.println(account2);
     }
 }

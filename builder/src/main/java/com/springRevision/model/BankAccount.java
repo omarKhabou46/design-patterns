@@ -1,9 +1,7 @@
 package com.springRevision.model;
 
-import com.springRevision.builder.BankAccountBuilder;
-import jdk.jshell.Snippet;
 
-public class BankAccount {
+public class BankAccount implements Cloneable {
     private Long id;
     private String currency;
     private double balance;
@@ -72,5 +70,14 @@ public class BankAccount {
                 ", type=" + type +
                 ", status=" + status +
                 '}';
+    }
+
+    @Override
+    public BankAccount clone() {
+        try {
+            return (BankAccount) super.clone();
+        } catch (CloneNotSupportedException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
