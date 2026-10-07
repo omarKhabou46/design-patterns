@@ -11,9 +11,7 @@ public class Main {
 
         System.out.println("\n\n");
 
-        Tv tv = new Tv();
         Adapter adapter = new Adapter();
-        adapter.setHdmi(tv);
         computer.setVga(adapter);
         computer.afficher();
     }
