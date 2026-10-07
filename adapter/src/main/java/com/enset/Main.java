@@ -8,5 +8,13 @@ public class Main {
         DataShow dataShow = new DataShow();
         computer.setVga(dataShow);
         computer.afficher();
+
+        System.out.println("\n\n");
+
+        Tv tv = new Tv();
+        Adapter adapter = new Adapter();
+        adapter.setHdmi(tv);
+        computer.setVga(adapter);
+        computer.afficher();
     }
 }
