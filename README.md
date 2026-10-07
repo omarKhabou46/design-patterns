@@ -15,12 +15,3 @@ L'Adapter agit comme un intermédiaire entre le code client et une classe exista
 4. **Adapter** → fait le lien entre `Target` et `Adaptee`.
 
 <img width="1106" height="318" alt="Adapter Design Pattern" src="https://github.com/user-attachments/assets/a27ab217-e8f8-4bbc-9d67-8037523fcf38" />
-
-### Exemple
-
-Le client attend l'interface `PaymentService` :
-
-```java
-public interface PaymentService {
-    void pay(double amount);
-}
