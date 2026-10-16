@@ -8,7 +8,8 @@ public class SMSDecorator extends NotificationDecorator {
 
     @Override
     public void send(String message) {
-        System.out.println("send messsgae " + message);
+        getNotification().send(message);
+        System.out.println("send messsgae using sms " + message);
     }
 
     @Override
