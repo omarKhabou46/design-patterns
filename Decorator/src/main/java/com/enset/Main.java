@@ -5,9 +5,9 @@ package com.enset;
 public class Main {
     static void main() {
        Notification notification = new BaseNotification();
-        System.out.println(notification.cost());
         notification = new SMSDecorator(notification);
-        System.out.println(notification.cost());
+        notification = new PushDecorator(notification);
+        notification.send("bonjour tout le monde");
 
     }
 }

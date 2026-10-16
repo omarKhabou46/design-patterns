@@ -8,7 +8,8 @@ public class PushDecorator extends NotificationDecorator {
 
     @Override
     public void send(String message) {
-        System.out.println("send message : " + message);
+        getNotification().send(message);
+        System.out.println("send message using push " + message);
     }
 
     @Override
